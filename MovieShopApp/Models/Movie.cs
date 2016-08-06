@@ -11,24 +11,21 @@ namespace MovieShopApp.Models
     {
         public int ID { get; set; }
 
-        [Required()]
-        public string Name { get; set; }
+        [DisplayName("Title(from IMDB)")]
+        public string Title { get; set; }
 
         [DefaultValue(0)]
         public float Rating { get; set; }
 
-        public string Description { get; set; }
+        [DataType(DataType.MultilineText)]
+        public string Plot { get; set; }
 
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; }
 
         [DataType(DataType.Currency)]
         public double Price { get; set; }
-
-        [DataType(DataType.Url)]
-        public string Imdb { get; set; }
         
-        [DisplayName("Added")]
         [DataType(DataType.DateTime)]
         public DateTime TimeAdded { get; set; }
     }

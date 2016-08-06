@@ -46,16 +46,22 @@ namespace MovieShopApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Rating,Description,ImageUrl,Price,Imdb,TimeAdded")] Movie movie)
-        {
+        public async System.Threading.Tasks.Task<ActionResult> Create([Bind(Include = "ID,Title,Price")] Movie movie)
+        {//Include = "ID,Title,Rating,Plot,ImageUrl,Price,Imdb,TimeAdded"
+            Movie m = await IMDB.ImdbAPI.GetMovieByTitle(movie.Title);
+
             if (ModelState.IsValid)
             {
-                db.Movies.Add(movie);
+                m.ID = movie.ID;
+                m.Price = movie.Price;
+                m.TimeAdded = DateTime.Now;
+
+                db.Movies.Add(m);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(movie);
+            return View(m);
         }
 
         // GET: Movies/Edit/5
@@ -78,7 +84,7 @@ namespace MovieShopApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Rating,Description,ImageUrl,Price,Imdb,TimeAdded")] Movie movie)
+        public ActionResult Edit([Bind(Include = "ID,Title,Rating,Plot,ImageUrl,Price,Imdb,TimeAdded")] Movie movie)
         {
             if (ModelState.IsValid)
             {
