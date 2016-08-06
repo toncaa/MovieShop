@@ -1,0 +1,66 @@
+﻿.navbar li {
+    background:#2e2d2d;
+    
+}
+
+.navbar li a {
+    color:#49c158;
+}
+
+.navbar li a:hover {
+   
+    border-bottom:1px solid #00ff21;
+    background:#2e2d2d;
+    color:#4ba056;
+}
+
+
+.navbar-brand 
+{
+    float:left;
+    background:#2e2d2d;
+    font-size:xx-large;
+    color:#49c158;
+}
+
+.navbar-brand:hover
+{
+    color:#4ba056;
+}
+
+
+footer {
+    background:#2e2d2d;
+    color:white;
+    text-align:center;
+    font-size:large;
+
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+}
+
+
+#glyph-item > a {
+    font-size: 30px;
+padding: 17.3%;
+    float:right;
+    margin-right:7%;
+}
+
+
+.sell-btn {
+    margin:1.2%;
+}
+
+.sell-btn a {
+  color:white;
+  text-decoration:none;   
+}
+
+.sell-btn a:hover {
+  color:white;
+  text-decoration:none;   
+}

@@ -17,7 +17,13 @@ namespace MovieShopApp.Controllers
         // GET: Movies
         public ActionResult Index()
         {
-            return View(db.Movies.ToList());
+            var movies = db.Movies.ToList();
+            ViewBag.moviesBelow = movies.FindAll(x => x.Price < 4);
+            ViewBag.moviesAbove = movies.FindAll(x => x.Price >= 4);
+
+            
+
+            return View();
         }
 
         // GET: Movies/Details/5

@@ -25,7 +25,10 @@ namespace MovieShopApp
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/movieimage.css",
+                      "~/Content/mystyles.css",
+                      "~/Content/divider.css"));
         }
     }
 }
