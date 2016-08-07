@@ -44,7 +44,6 @@ height: 260px;
     overflow: hidden;
     max-height: 13.7ch;
 
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .imgWrap:hover p:nth-child(2) {
@@ -60,5 +59,7 @@ height: 260px;
     bottom:3%;
     left:20%;
 }
+
+
 
 

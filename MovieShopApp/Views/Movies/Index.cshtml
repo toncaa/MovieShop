@@ -34,7 +34,9 @@
                     <p>@plot</p>
                     <p>@price</p>
                     <div class="btn-group">
-                        <button class="btn btn-default">MORE</button>
+                        <div class="btn btn-default">
+                            @Html.ActionLink("MORE", "Details", "Movies", new { id = item.ID }, null)
+                        </div>
                         <button class="btn btn-success">ADD <span class="glyphicon glyphicon-shopping-cart" /></button>
                     </div>
                 </div>
@@ -66,7 +68,13 @@
                 <p>@plot</p>
                 <p>@price</p>
                 <div class="btn-group">
-                    <button class="btn btn-default">MORE</button>
+                    <button class="btn btn-default">
+                        <a href="Movies/Details/@item.ID">
+                            MORE
+                         </a>
+                    </button>
+                   
+
                     <button class="btn btn-success">ADD <span class="glyphicon glyphicon-shopping-cart" /></button>
                 </div>
             </div>

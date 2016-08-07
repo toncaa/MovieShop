@@ -1,74 +1,27 @@
 ﻿@model MovieShopApp.Models.Movie
 
-@{
-    ViewBag.Title = "Details";
-}
+<div class="container movie-in-detail">
 
-<h2>Details</h2>
+    <h3>@Model.Title</h3>
 
-<div>
-    <h4>Movie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+    <div class="row">
+        <div class="col-md-4 col-md-push-1">
+            <img src="@Model.ImageUrl" alt="movie image" />
+        </div>
+        <div class="col-md-4 col-md-push-1">
+            <p>
+                @Model.Plot
+            </p>
+          <div name="rating">
+              Rating: <b>@Model.Rating</b> <br />
+          </div>
+           <div name="price">
+               Price: <b>$@Model.Price</b>
+           </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Plot)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Plot)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Imdb)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Imdb)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TimeAdded)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TimeAdded)
-        </dd>
-
-    </dl>
+            <br />
+            <button class="btn btn-success btn-lg">ADD TO <span class="glyphicon glyphicon-shopping-cart" /></button>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

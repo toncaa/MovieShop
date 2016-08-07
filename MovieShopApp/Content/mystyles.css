@@ -64,3 +64,51 @@ padding: 17.3%;
   color:white;
   text-decoration:none;   
 }
+
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.container .movie-in-detail
+{
+    color:#e9dcdc;
+}
+
+.container .movie-in-detail p {
+    background-color:#424242;
+    color:#fff;
+    padding:3%;
+    border-radius:1%;
+}
+
+.container .movie-in-detail h3 {
+    font-weight:bolder;
+    font-size:40px;
+    margin:3%;
+}
+
+.container .movie-in-detail div[name="rating"]
+{
+    color:#fafa7a;
+    font-size:large;
+}
+
+.container .movie-in-detail div[name="rating"]>b
+{
+    font-size:larger;
+}
+
+.container .movie-in-detail div[name="price"]
+{
+    color:#41964c;
+    font-size:large;
+}
+
+.container .create-movie {
+    color:white;
+}
