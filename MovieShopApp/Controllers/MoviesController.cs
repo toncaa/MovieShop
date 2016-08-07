@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using MovieShopApp.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using MovieShopApp.IMDB;
 
 namespace MovieShopApp.Controllers
 {
     public class MoviesController : Controller
     {
         private MovieShopAppContext db = new MovieShopAppContext();
+        private ImdbAPI imdb = ImdbAPI.Singleton;
+
 
         public Boolean isAdminUser()
         {
@@ -80,7 +80,7 @@ namespace MovieShopApp.Controllers
         [ValidateAntiForgeryToken]
         public async System.Threading.Tasks.Task<ActionResult> Create([Bind(Include = "ID,Title,Price")] Movie movie)
         {//Include = "ID,Title,Rating,Plot,ImageUrl,Price,Imdb,TimeAdded"
-            Movie m = await IMDB.ImdbAPI.GetMovieByTitle(movie.Title);
+            Movie m = await imdb.GetMovieByTitle(movie.Title);
 
             if (ModelState.IsValid)
             {

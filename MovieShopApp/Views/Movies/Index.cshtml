@@ -5,10 +5,12 @@
 }
 
 @if (ViewBag.Admin)
-{
-    <button class="sell-btn btn btn-success btn-lg">
-        @Html.ActionLink("SELL", "Create")
-    </button>
+{    <a href="Movies/Create">
+        <button class="sell-btn btn btn-success btn-lg">
+            SELL
+        </button>
+    </a>
+
 }
 
 
@@ -76,9 +78,9 @@
                             MORE
                          </a>
                     </button>
-                   
-
-                    <button class="btn btn-success">ADD <span class="glyphicon glyphicon-shopping-cart" /></button>
+                    <button class="btn btn-success">
+                        ADD <span class="glyphicon glyphicon-shopping-cart" />
+                    </button>
                 </div>
             </div>
         </div>

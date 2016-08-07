@@ -1,20 +1,35 @@
 ﻿using MovieShopApp.Models;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace MovieShopApp.IMDB
 {
-    public static class ImdbAPI
+    public class ImdbAPI
     {
-        public static string WebServiceAddress = "http://www.omdbapi.com/?t=";
 
-        public static async Task<Movie> GetMovieByTitle(string title)
+        private static ImdbAPI singleton;
+        private string WebServiceAddress = "http://www.omdbapi.com/?t=";
+
+
+        public static ImdbAPI Singleton
+        {
+            get
+            {
+                if (singleton == null)
+                    singleton = new ImdbAPI();
+                return singleton;
+            }
+            set
+            {
+                singleton = value;
+            }
+        }
+
+        private ImdbAPI() { }
+
+        public async Task<Movie> GetMovieByTitle(string title)
         {
             var client = new HttpClient
             {

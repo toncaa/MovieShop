@@ -22,13 +22,16 @@
             <div class="navbar-collapse collapse">
 
                 @Html.Partial("_LoginPartial")
-                <ul class="nav navbar-nav navbar-right">
-                    <li id="glyph-item">
-                        <a href="#">
-                            <span class="glyphicon glyphicon-shopping-cart" />
-                        </a>
-                    </li>
-                </ul>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="glyph-item">
+                            <a href="#">
+                                <span class="glyphicon glyphicon-shopping-cart" />
+                            </a>
+                        </li>
+                    </ul>
+                }
             </div>
         </div>
     </div>
