@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MovieShopApp.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MovieShopApp.Controllers
 {
@@ -14,9 +16,32 @@ namespace MovieShopApp.Controllers
     {
         private MovieShopAppContext db = new MovieShopAppContext();
 
+        public Boolean isAdminUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var s = UserManager.GetRoles(user.GetUserId());
+                if (s[0].ToString() == "Admin")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
         // GET: Movies
         public ActionResult Index()
         {
+            ViewBag.Admin = isAdminUser();
+
+
             var movies = db.Movies.ToList();
             ViewBag.moviesBelow = movies.FindAll(x => x.Price < 4);
             ViewBag.moviesAbove = movies.FindAll(x => x.Price >= 4);
@@ -42,6 +67,7 @@ namespace MovieShopApp.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize(Roles =("Admin"))]
         public ActionResult Create()
         {
             return View();

@@ -4,9 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<p class="sell-btn btn btn-success btn-lg">
-   @Html.ActionLink("SELL", "Create")
-</p>
+@if (ViewBag.Admin)
+{
+    <button class="sell-btn btn btn-success btn-lg">
+        @Html.ActionLink("SELL", "Create")
+    </button>
+}
 
 
 <div class="container">
