@@ -39,10 +39,18 @@
                     <p>@plot</p>
                     <p>@price</p>
                     <div class="btn-group">
-                        <div class="btn btn-default">
-                            @Html.ActionLink("MORE", "Details", "Movies", new { id = item.ID }, null)
-                        </div>
-                        <button class="btn btn-success">ADD <span class="glyphicon glyphicon-shopping-cart" /></button>
+                        <a href="/Movies/Details/@item.ID">
+                            <button class="btn btn-default">
+                                MORE
+                            </button>
+                        </a>
+
+                        <a href="/Cart/AddOrder/?movieId=@item.ID">
+                            <button class="btn btn-success add-to-cart-button">
+                                ADD
+                                <span class="glyphicon glyphicon-shopping-cart" />
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,14 +81,17 @@
                 <p>@plot</p>
                 <p>@price</p>
                 <div class="btn-group">
-                    <button class="btn btn-default">
-                        <a href="Movies/Details/@item.ID">
+                    <a href="/Movies/Details/@item.ID">
+                        <button class="btn btn-default">
                             MORE
-                         </a>
-                    </button>
-                    <button class="btn btn-success">
-                        ADD <span class="glyphicon glyphicon-shopping-cart" />
-                    </button>
+                        </button>
+                    </a>
+                    <a href="/Cart/AddOrder/?movieId=@item.ID">
+                        <button class="btn btn-success add-to-cart-button">
+                            ADD
+                         <span class="glyphicon glyphicon-shopping-cart" />
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>

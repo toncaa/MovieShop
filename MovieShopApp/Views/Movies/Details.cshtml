@@ -20,7 +20,12 @@
            </div>
 
             <br />
-            <button class="btn btn-success btn-lg">ADD TO <span class="glyphicon glyphicon-shopping-cart" /></button>
+            <a href="/Cart/AddOrder/?movieId=@Model.ID">
+                <button class="btn btn-success btn-lg add-to-cart-button">
+                    ADD TO
+                    <span class="glyphicon glyphicon-shopping-cart" />
+                </button>
+            </a>
         </div>
     </div>
 </div>

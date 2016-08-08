@@ -20,5 +20,7 @@ namespace MovieShopApp.Models
         }
 
         public System.Data.Entity.DbSet<MovieShopApp.Models.Movie> Movies { get; set; }
+
+        public System.Data.Entity.DbSet<MovieShopApp.Models.Order> Orders { get; set; }
     }
 }

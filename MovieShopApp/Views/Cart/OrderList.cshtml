@@ -1,0 +1,77 @@
+﻿@using MovieShopApp.ViewModel
+@model IEnumerable<OrderListViewModel>
+
+@{
+    ViewBag.Title = "OrderList";
+}
+
+@if(Model.Count() == 0)
+{
+    <h2>Your cart is empty</h2>
+}
+else
+{
+
+    <h2>OrderList</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                Movie
+            </th>
+            <th>
+                Plot
+            </th>
+            <th>
+                Rating
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" />
+                </td>
+                <td>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Plot)
+                    </p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    <a href="/Cart/RemoveOrder/?orderId=@item.OrderId">
+                        <button class="btn btn-danger">
+                            X
+                        </button>
+                    </a>
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <br />
+    <br />
+    <a href="/Cart/DoTheOrder">
+        <button style="float:right;" class="btn btn-success btn-lg">
+            ORDER
+        </button>
+    </a>
+
+    <br />
+    <br />
+
+}
+

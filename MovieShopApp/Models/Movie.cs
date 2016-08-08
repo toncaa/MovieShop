@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MovieShopApp.ViewModel;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace MovieShopApp.Models
 {
@@ -28,5 +26,6 @@ namespace MovieShopApp.Models
         
         [DataType(DataType.DateTime)]
         public DateTime TimeAdded { get; set; }
+
     }
 }

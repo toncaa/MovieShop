@@ -1,4 +1,9 @@
-﻿.navbar li {
+﻿a {
+    text-decoration:none;
+    
+}
+
+.navbar li {
     background:#2e2d2d;
     
 }
@@ -111,4 +116,31 @@ a:hover {
 
 .container .create-movie {
     color:white;
+}
+
+@keyframes info{
+    0% {
+        width:50%;
+        height:0px;
+        background:white;
+    }
+    30%, 100% {
+        width:50%;
+        height:100px;
+        background-color:#1f6bad;
+    }
+}
+
+
+
+
+.animate-class
+{
+    width:50%;
+    height:0px;
+    animation-name:info;
+    animation-duration:3s;
+    animation-timing-function:ease-in-out;
+    pointer-events:none;
+
 }
